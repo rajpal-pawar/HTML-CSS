@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echelon Dev Society</title>
+    
+    <!-- 1. Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Anton for headings, Inter for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- 3. Configure Tailwind -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode
+            theme: {
+                extend: {
+                    fontFamily: {
+                        // 'Anton' for bold, impactful headings
+                        'display': ['Anton', 'sans-serif'], 
+                        // 'Inter' for readable body text
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Dark blue/gray background
+                        'dark-bg': '#222831',
+                        // Off-white text
+                        'light-text': '#EEEEEE',
+                        // Bright red accent
+                        'brand-red': '#EF233C',
+                    }
+                },
+            },
+        }
+    </script>
+
+    <!-- 4. Custom Styles -->
+    <style>
+        /* Set the base font for the entire site */
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        /* Set all headings to the display font */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 0.05em; /* Add a little spacing */
+            text-transform: uppercase;
+        }
+
+        /* Hide scrollbar when menu is open */
+        .menu-open {
+            overflow: hidden;
+        }
+
+        /* Custom styles for the sharp-edged look */
+        .section-border {
+            border: 2px solid #222831;
+        }
+        .dark .section-border {
+            border-color: #EEEEEE;
+        }
+        .header-border {
+            border-bottom: 2px solid #222831;
+        }
+        .dark .header-border {
+            border-bottom-color: #EEEEEE;
+        }
+
+        /* --- MARQUEE / TICKER ANIMATION --- */
+        .marquee {
+            overflow: hidden;
+            position: relative;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            /* Adjust animation duration for speed */
+            animation: marquee 20s linear infinite;
+        }
+        .marquee-content span {
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            padding: 0 2rem;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        /* --- END MARQUEE --- */
+    </style>
+</head>
+
+<!-- We start in dark mode by default for this aesthetic -->
+<body class="dark bg-dark-bg text-light-text m-0">
+
+    <!-- ========== HEADER ========== -->
+    <header class="sticky top-0 z-40 w-full bg-dark-bg header-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="text-3xl font-display uppercase tracking-widest">
+                    Echelon
+                </a>
+
+                <!-- Desktop/Mobile Menu Button -->
+                <button id="menu-open-button" class="text-lg font-bold uppercase border-2 border-light-text px-4 py-2 hover:bg-brand-red hover:text-white hover:border-brand-red transition-colors">
+                    Menu
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== FULLSCREEN MENU ========== -->
+    <div id="fullscreen-menu" class="hidden fixed inset-0 z-50 bg-dark-bg p-4">
+        <!-- Menu Header -->
+        <div class="flex justify-between items-center h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <a href="#" class="text-3xl font-display uppercase tracking-widest">
+                Echelon
+            </a>
+            <button id="menu-close-button" class="text-lg font-bold uppercase border-2 border-light-text px-4 py-2 hover:bg-brand-red hover:text-white hover:border-brand-red transition-colors">
+                Close
+            </button>
+        </div>
+
+        <!-- Menu Content -->
+        <div class="flex flex-col items-center justify-center" style="height: calc(100vh - 100px);">
+            <nav class="flex flex-col space-y-8 text-center">
+                <a href="#about" class="menu-link text-6xl font-display text-gray-400 hover:text-white">About</a>
+                <a href="#events" class="menu-link text-6xl font-display text-gray-400 hover:text-white">Events</a>
+                <a href="#team" class="menu-link text-6xl font-display text-gray-400 hover:text-white">Team</a>
+            </nav>
+
+            <!-- Light Mode Toggle Button (inside menu) -->
+            <button id="theme-toggle" class="absolute bottom-10 p-2 border-2 border-light-text">
+                <!-- Sun Icon -->
+                <svg id="theme-toggle-sun" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm0 13a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm6.2-3.8a1 1 0 010 1.4l-.7.7a1 1 0 01-1.4-1.4l.7-.7a1 1 0 011.4 0zm-11.4 0a1 1 0 011.4 0l-.7.7a1 1 0 01-1.4 1.4l.7-.7a1 1 0 010-1.4zM10 4a6 6 0 100 12 6 6 0 000-12zM2.8 9.2a1 1 0 010 1.4l-.7.7a1 1 0 01-1.4-1.4l.7-.7a1 1 0 011.4 0zm13 0a1 1 0 011.4 0l-.7.7a1 1 0 01-1.4 1.4l.7-.7a1 1 0 010-1.4zM7 1a1 1 0 011 1v1a1 1 0 11-2 0V2a1 1 0 011-1zm8 0a1 1 0 011 1v1a1 1 0 11-2 0V2a1 1 0 011-1z"></path></svg>
+                <!-- Moon Icon -->
+                <svg id="theme-toggle-moon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- ========== 1. HERO SECTION ========== -->
+        <section id="hero" class="flex flex-col justify-center text-left py-32 md:py-48">
+            <h1 class="text-8xl md:text-9xl font-display mb-6">
+                WE ARE <span class="text-brand-red">ECHELON</span>
+            </h1>
+            <p class="text-2xl md:text-3xl max-w-3xl font-sans">
+                Your college's core development society, building the future of tech, one project at a time.
+            </p>
+        </section>
+
+        <!-- ========== 2. ABOUT SECTION ========== -->
+        <section id="about" class="py-20 md:py-32 section-border bg-light-text text-dark-bg">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6 md:p-10">
+                <!-- Image column -->
+                <div class="section-border border-dark-bg">
+                    <img src="https://placehold.co/600x400/222831/EEEEEE?text=Our+Mission&font=anton" alt="Echelon team working" class="w-full h-full object-cover">
+                </div>
+                <!-- Text column -->
+                <div class="md:p-6">
+                    <h2 class="text-5xl font-display mb-6">About Us</h2>
+                    <p class="text-lg mb-4 font-sans">
+                        Echelon Dev Society is a passionate community of student developers, designers, and tech enthusiasts. We believe in learning by doing, collaborating on real-world projects, and fostering a culture of innovation.
+                    </p>
+                    <p class="text-lg font-sans">
+                        Our mission is to bridge the gap between academic learning and industry standards. We host workshops, build open-source tools, and compete in hackathons.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 3. "SIDE SCROLL" MARQUEE SECTION ========== -->
+        <section id="marquee" class="py-12 md:py-20">
+            <div class="marquee section-border bg-brand-red text-dark-bg py-4">
+                <div class="marquee-content">
+                    <!-- Repeat the content for a seamless loop -->
+                    <span>EVENTS</span>
+                    <span>PROJECTS</span>
+                    <span>WORKSHOPS</span>
+                    <span>HACKATHONS</span>
+                    <span>EVENTS</span>
+                    <span>PROJECTS</span>
+                    <span>WORKSHOPS</span>
+                    <span>HACKATHONS</span>
+                    <span>EVENTS</span>
+                    <span>PROJECTS</span>
+                    <span>WORKSHOPS</span>
+                    <span>HACKATHONS</span>
+                    <span>EVENTS</span>
+                    <span>PROJECTS</span>
+                    <span>WORKSHOPS</span>
+                    <span>HACKATHONS</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========== 4. EVENTS/PROJECTS SECTION ========== -->
+        <section id="events" class="py-20 md:py-32">
+            <div class="text-left mb-16">
+                <h2 class="text-6xl font-display">What We're Building</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="section-border hover:bg-light-text hover:text-dark-bg transition-colors group">
+                    <img src="https://placehold.co/600x400/222831/EEEEEE?text=Project+Alpha&font=anton" alt="Project Alpha" class="w-full h-48 object-cover section-border">
+                    <div class="p-6">
+                        <h3 class="text-3xl font-display mb-2">Project Alpha</h3>
+                        <p class="mb-4 font-sans">
+                            A campus-wide event management platform built with React and Firebase.
+                        </p>
+                        <a href="#" class="font-bold uppercase text-brand-red group-hover:text-dark-bg">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="section-border hover:bg-light-text hover:text-dark-bg transition-colors group">
+                    <img src="https://placehold.co/600x400/222831/EEEEEE?text=AI+Workshop&font=anton" alt="AI Workshop" class="w-full h-48 object-cover section-border">
+                    <div class="p-6">
+                        <h3 class="text-3xl font-display mb-2">AI/ML Workshop</h3>
+                        <p class="mb-4 font-sans">
+                            A 3-day workshop introducing students to the fundamentals of machine learning.
+                        </p>
+                        <a href="#" class="font-bold uppercase text-brand-red group-hover:text-dark-bg">Learn More &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="section-border hover:bg-light-text hover:text-dark-bg transition-colors group">
+                    <img src="https://placehold.co/600x400/222831/EEEEEE?text=Dev+Sprint&font=anton" alt="Dev Sprint" class="w-full h-48 object-cover section-border">
+                    <div class="p-6">
+                        <h3 class="text-3xl font-display mb-2">Open Source Sprint</h3>
+                        <p class="mb-4 font-sans">
+                            Our annual 48-hour sprint dedicated to contributing to open-source projects.
+                        </p>
+                        <a href="#" class="font-bold uppercase text-brand-red group-hover:text-dark-bg">See Contributions &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- ========== 5. TEAM SECTION ========== -->
+        <section id="team" class="py-20 md:py-32">
+            <div class="text-left mb-16">
+                <h2 class="text-6xl font-display">Core Team</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-left">
+                
+                <!-- Team Member 1 -->
+                <div class="section-border hover:bg-light-text hover:text-dark-bg transition-colors">
+                    <img src="https://placehold.co/300x300/222831/EEEEEE?text=PFP&font=anton" alt="Team Member 1" class="w-full h-auto section-border">
+                    <div class="p-4">
+                        <h3 class="text-2xl font-display">Jane Doe</h3>
+                        <p class="font-sans text-brand-red">President</p>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="section-border hover:bg-light-text hover:text-dark-bg transition-colors">
+                    <img src="https://placehold.co/300x300/222831/EEEEEE?text=PFP&font=anton" alt="Team Member 2" class="w-full h-auto section-border">
+                    <div class="p-4">
+                        <h3 class="text-2xl font-display">John Smith</h3>
+                        <p class="font-sans text-brand-red">VP, Technology</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="section-border hover:bg-light-text hover:text-dark-bg transition-colors">
+                    <img src="https://placehold.co/300x300/222831/EEEEEE?text=PFP&font=anton" alt="Team Member 3" class="w-full h-auto section-border">
+                    <div class="p-4">
+                        <h3 class="text-2xl font-display">Alex Johnson</h3>
+                        <p class="font-sans text-brand-red">Events Lead</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="section-border hover:bg-light-text hover:text-dark-bg transition-colors">
+                    <img src="https://placehold.co/300x300/222831/EEEEEE?text=PFP&font=anton" alt="Team Member 4" class="w-full h-auto section-border">
+                    <div class="p-4">
+                        <h3 class="text-2xl font-display">Sarah Chen</h3>
+                        <p class="font-sans text-brand-red">Design Lead</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="section-border max-w-7xl mx-auto my-10">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <!-- Copyright -->
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p class="font-sans">&copy; 2024 Echelon Dev Society</p>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex space-x-6">
+                    <!-- GitHub Icon -->
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition-colors">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.202 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // --- 1. DARK/LIGHT MODE TOGGLE ---
+        
+        const themeToggleButton = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('theme-toggle-sun');
+        const moonIcon = document.getElementById('theme-toggle-moon');
+
+        function setTheme(isDark) {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        }
+
+        // Check for saved theme
+        const savedTheme = localStorage.getItem('theme');
+        
+        // Start in dark mode by default if no theme is saved
+        if (savedTheme === 'light') {
+            setTheme(false);
+        } else {
+            setTheme(true);
+        }
+
+        themeToggleButton.addEventListener('click', () => {
+            const isCurrentlyDark = document.documentElement.classList.contains('dark');
+            setTheme(!isCurrentlyDark);
+        });
+
+        // --- 2. FULLSCREEN MENU TOGGLE ---
+
+        const menuOpenButton = document.getElementById('menu-open-button');
+        const menuCloseButton = document.getElementById('menu-close-button');
+        const fullscreenMenu = document.getElementById('fullscreen-menu');
+        const menuLinks = document.querySelectorAll('.menu-link');
+        const body = document.body;
+
+        function openMenu() {
+            fullscreenMenu.classList.remove('hidden');
+            body.classList.add('menu-open');
+        }
+
+        function closeMenu() {
+            fullscreenMenu.classList.add('hidden');
+            body.classList.remove('menu-open');
+        }
+
+        menuOpenButton.addEventListener('click', openMenu);
+        menuCloseButton.addEventListener('click', closeMenu);
+
+        // Hide menu when a link is clicked
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img{
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+            object-position: right;
+            border-radius: 100%;
+            vertical-align: middle;
+            transition: transform 0.3s, shadow 0.3s;
+            padding-left: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .img:hover{
+            transform: scale(1.08);
+            
+           
+        }
+        .input{
+            border: none ;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            
+            margin-left: 9px;
+            font-size: 30px;
+            vertical-align: middle;
+            margin-right: 0px;
+            padding-right: 0px;
+            box-shadow: 0px 0px 3px;
+            border-radius: 9px;
+        }
+        .tweet{
+           padding: 10px 20px 10px 20px;
+           border: none;
+           border-radius: 30px;
+           background-color: rgb(164, 164, 224);
+           font-size: 20px;
+           vertical-align: middle;
+           color: white;
+           font-family: sans-serif;
+           font-weight: bold;
+           transition: transform 0.25s;
+           transform-style: preserve-3d;
+           margin-left: 14px;
+        }
+        .tweet:hover{
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 7px black;
+        }
+        .tweet:active{
+            transform: scale(0.98);
+        }
+        .div1{
+            border: none;
+            box-shadow: 0px 0px 7px grey;
+            border-radius: 9px;
+            margin-top: 4%;
+        }    
+        .div2{
+            border: none;
+            box-shadow: 0px 0px 7px grey;
+            display: inline-block;
+            margin-left: 9px;
+            margin-top: 4%;
+            width: 170px;
+        }   
+        .div2:hover{
+            transform: scale(1.1);
+            transition: transform 0.2s;
+        }
+        .img2{
+            width: 170px;
+        }     
+        .dawg-div{
+            box-shadow: 0px 0px 2px;
+            gap: 8px;
+            margin: 5px;
+        }
+        .dawg-div:hover{
+            border-radius: 4px;
+            transform: scale(1.01);
+            box-shadow: 0px 0px 5px;
+            transition: transform 0.15s;
+            opacity: 0.8;
+        }
+        .dawg,
+        .dawg-info,
+        .dawg-flw{
+            display: inline-block;
+        }
+        .dawg-img{
+            width: 70px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin: 0px;
+            padding: 5px;
+        }
+        .d-nme{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+            font-size: 20px;
+            padding-bottom: 8px;
+            margin: 0px;
+        }
+        .about{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding-bottom: 8px;
+            margin: 0px;
+            color: rgb(143, 123, 123);
+
+        }
+        .dawg-info{
+            vertical-align: middle;
+            margin-left: 15px;
+        }
+        .dawg-flw-bttn{
+            margin-left: 150px;
+            background-color: rgb(132, 0, 255);
+            border: none;
+            padding: 10px 20px 10px 20px;
+            border-radius: 5px;
+            color: white;
+            font-size: 21px;
+            font-weight: 900;
+            vertical-align: middle;
+        }
+        .mutual-dawg{
+            width: 30px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+        .mutual-info{
+            color: rgb(74, 107, 107); padding-left: 3px; font-family: Arial, Helvetica, sans-serif; margin-bottom: 4%; margin-top: 0%;
+            display: inline-block;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <img class="img" src="image.png" alt="img">
+        <input class="input" placeholder="What up?" type="text">
+        <button class="tweet">Tweet</button>
+    </div>
+    <hr>
+    <div class="div2">
+        <img class="img2" src="https://thvnext.bing.com/th/id/OIP.D10bUymg9cmwSBYC1jwULAHaHa?w=167&h=180&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="wanted">
+        <h1  style="padding-left: 8px; margin: 0%; font-family: Arial, Helvetica, sans-serif;">Wanted</h1>
+        <p style="color: rgb(74, 107, 107); padding-left: 8px; font-family: Arial, Helvetica, sans-serif; margin-bottom: 4%; margin-top: 0%;">
+            2 mutual friends
+        </p>
+        <center>
+            <button style=" margin-top: 0%; background-color: blueviolet; color: white; font-family: Arial, Helvetica, sans-serif; font-weight: bold; border: none; margin-bottom: 9px; border-radius: 4px; padding: 6px 15px 7px 15px;">
+            Add Friend
+            </button>
+        </center>
+    </div>
+    <div class="div2">
+        <img class="img2" src="https://thvnext.bing.com/th/id/OIP.D10bUymg9cmwSBYC1jwULAHaHa?w=167&h=180&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="wanted">
+        <h1  style="padding-left: 8px; margin: 0%; font-family: Arial, Helvetica, sans-serif;">Wanted</h1>
+        <p style="color: rgb(74, 107, 107); padding-left: 8px; font-family: Arial, Helvetica, sans-serif; margin-bottom: 4%; margin-top: 0%;">
+            2 mutual friends
+        </p>
+        <center>
+            <button style=" margin-top: 0%; background-color: blueviolet; color: white; font-family: Arial, Helvetica, sans-serif; font-weight: bold; border: none; margin-bottom: 9px; border-radius: 4px; padding: 6px 15px 7px 15px;">
+            Add Friend
+            </button>
+        </center>
+    </div>
+    <div class="div2">
+        <img class="img2" src="https://thvnext.bing.com/th/id/OIP.D10bUymg9cmwSBYC1jwULAHaHa?w=167&h=180&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="wanted">
+        <h1  style="padding-left: 8px; margin: 0%; font-family: Arial, Helvetica, sans-serif;">Wanted</h1>
+        <p style="color: rgb(74, 107, 107); padding-left: 8px; font-family: Arial, Helvetica, sans-serif; margin-bottom: 4%; margin-top: 0%;">
+            2 mutual friends
+        </p>
+        <center>
+            <button style=" margin-top: 0%; background-color: blueviolet; color: white; font-family: Arial, Helvetica, sans-serif; font-weight: bold; border: none; margin-bottom: 9px; border-radius: 4px; padding: 6px 15px 7px 15px;">
+            Add Friend
+            </button>
+        </center>
+    </div>
+    <hr>
+    <div class="dawg-div">
+        <div class="dawg">
+            <img class="dawg-img" src="https://thvnext.bing.com/th/id/OIP.W3W5D991MLmVaYBpwxHQ0AHaHa?w=189&h=189&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="dawg">
+        </div>
+        <div  class="dawg-info">
+            <div>
+                <p class="d-nme">
+                Oliver
+                </p>
+            </div>
+            <div>
+               <p class="about">
+                The Dawg
+               </p>
+            </div>
+            <div>
+                <p class="about">
+                    Popular
+                </p>
+            </div>
+            
+        </div>
+        <div class="dawg-flw">
+            <button class="dawg-flw-bttn">
+                Follow
+            </button>
+        </div>
+    </div>
+    <div class="dawg-div">
+        <div class="dawg">
+            <img class="dawg-img" src="https://thvnext.bing.com/th/id/OIP.W3W5D991MLmVaYBpwxHQ0AHaHa?w=189&h=189&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="dawg">
+        </div>
+        <div  class="dawg-info">
+            <div>
+                <p class="d-nme">
+                Oliver
+                </p>
+            </div>
+            <div>
+               <p class="about">
+                The Dawg
+               </p>
+            </div>
+            <div>
+                <p class="about">
+                    Popular
+                </p>
+            </div>
+            
+        </div>
+        <div class="dawg-flw">
+            <button class="dawg-flw-bttn">
+                Follow
+            </button>
+        </div>
+    </div>
+    <div class="dawg-div">
+        <div class="dawg">
+            <img class="dawg-img" src="https://thvnext.bing.com/th/id/OIP.W3W5D991MLmVaYBpwxHQ0AHaHa?w=189&h=189&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="dawg">
+        </div>
+        <div  class="dawg-info">
+            <div>
+                <p class="d-nme">
+                Oliver
+                </p>
+            </div>
+            <div>
+               <p class="about">
+                The Dawg
+               </p>
+            </div>
+            <div>
+                <p class="about">
+                    Popular
+                </p>
+            </div>
+            
+        </div>
+        <div class="dawg-flw">
+            <button class="dawg-flw-bttn">
+                Follow
+            </button>
+        </div>
+    </div>
+    <div class="dawg-div">
+        <div class="dawg">
+            <img class="dawg-img" src="https://thvnext.bing.com/th/id/OIP.W3W5D991MLmVaYBpwxHQ0AHaHa?w=189&h=189&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="dawg">
+        </div>
+        <div  class="dawg-info">
+            <div>
+                <p class="d-nme">
+                Oliver
+                </p>
+            </div>
+            <div>
+               <p class="about">
+                The Dawg
+               </p>
+            </div>
+            <div>
+                <p class="about">
+                    Popular
+                </p>
+            </div>
+            
+        </div>
+        <div class="dawg-flw">
+            <button class="dawg-flw-bttn">
+                Follow
+            </button>
+        </div>
+    </div>
+    <hr>
+     <div class="div2">
+        <img class="img2" src="https://thvnext.bing.com/th/id/OIP.D10bUymg9cmwSBYC1jwULAHaHa?w=167&h=180&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="wanted">
+        <h1  style="padding-left: 8px; margin: 0%; font-family: Arial,Helvetica, sans-serif; font-size: 20px;">Wanted</h1>
+        <div style=" display: inline-block;">
+            <img class="mutual-dawg" src="https://thvnext.bing.com/th/id/OIP.W3W5D991MLmVaYBpwxHQ0AHaHa?w=189&h=189&c=7&r=0&o=7&cb=12&pid=1.7&rm=3" alt="dawg">
+        </div>
+        <p class="mutual-info">
+            2 mutual friends
+        </p>
+       <button style=" margin-top: 8px; background-color: blueviolet; color: white; font-family: Arial, Helvetica, sans-serif; font-weight: bold; border: none; margin-left: 8px; margin-bottom: 9px; border-radius: 4px; padding: 9px 15px 9px 15px;">
+            Add Friend
+        </button>
+    </div>
+</body>
+</html>

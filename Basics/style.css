@@ -1,0 +1,48 @@
+ .subscribe{
+            background-color:  #f1f1f1;
+            border: none;
+            border-radius: 100px;
+            font-family: sans-serif;
+            font-size: 20px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-left: 25px;
+            padding-right: 25px;
+            font-weight: 500;
+            transition: transform 0.3s ease-in;
+        }
+        .subscribe:hover{
+            background-color: #e0e0e0;
+            transition: backgrounf-color 0.2s;
+            transform: translateY(-2px);
+            cursor: pointer;
+        }
+        .subscribe:active{
+            background-color: red;
+            border-radius: 3px;
+            transition: 0.3s;
+
+        }
+        .line{
+            background-color: red;
+            color: white;
+            border-radius: 8px;
+            font-size: 20px;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-family: Dancing Script;
+           
+        }
+        .b2p{
+            font-weight: bold;
+            margin-left: 6px;
+            font-family: BBH Sans Bartle;
+        }
+        .b2p:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        body{
+            background-color: rgb(202, 161, 161);
+        }

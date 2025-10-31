@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .email,
+        .name{
+            display: block;
+            margin-bottom: 10px;
+        }
+        .para{
+            display: inline-block;
+            width: 400px;
+            font-size: 40px;
+            vertical-align: middle;
+        }
+        .buttons{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .google{
+            height: 70px;
+            display: block;
+        }
+        .g-search{
+            font-size: larger;
+            padding-left: 10px;
+            padding-right: 300px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 9px;
+            border: none;
+            box-shadow: 0px 0px 6px rgb(150, 140, 140, 90);
+            border-radius: 20px;    
+        }
+        .f-name{
+            font-size: small;
+            font-weight: bold;
+            padding: 10px 0px 10px 10px;
+            width: 100px;
+            border-radius: 4px;
+            border-width: 1px;
+            border-style: solid;
+            display: inline-block;
+        }
+        .l-name{
+            font-size: small;
+            font-weight: bold;
+            padding: 10px 0px 10px 10px;
+            width: 100px;
+            border-radius: 4px;
+            border-width: 1px;
+            border-style: solid;
+        }
+        .email2{
+            font-size: small;
+            width: 215px;
+            display: block;
+            margin-top: 8px;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 4px;
+            padding: 10px 0px 10px 10px;
+            font-weight: bold;
+        }
+        .signup{
+            background-color: rgb(89, 113, 221);
+            border: none;
+            border-radius: 7px;
+            font-size: 15px;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            padding: 13px 70px 13px 70px;
+            margin-top: 10px;
+            width: 227px;
+        }
+        .signup:hover{
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        .gbutton{
+            border: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 550;
+            margin-top: 30px;
+            margin-left: 10px;
+            padding: 10px 20px 10px 20px;
+            border-radius: 2px;
+            
+        }
+    </style>
+</head>
+<body>
+    <input class="name" placeholder="Name" type="text">
+    <input class="email" placeholder="E-mail" type="text">
+    <hr>
+    <p class="para">
+        Thanks for chatting with our customer support. Would you like to take our quick survey?
+    </p>
+    <div class="buttons">
+        <button>Yes</button>
+        <button>No</button>
+    </div>
+    <hr>
+    <div>
+        <center>
+            <img class="google" src="google.png" alt="">
+            <input class="g-search" placeholder="Search google or type a URL" type="text">
+            <div>
+                <button class="gbutton">
+                Google Search
+            </button>
+            <button class="gbutton">
+                I'm Feeling Lucky
+            </button>
+            </div>
+        </center>
+    </div>
+    <hr>
+    <center>
+        <div>
+            <input class="f-name" placeholder="First Name" type="text">
+            <input class="l-name" placeholder="Last Name" type="text">
+            <input class="email2" placeholder="E-mail" type="text">
+            <button class="signup">Sign Up</button>
+        </div>
+    </center>
+    <hr>
+
+</body>
+</html>

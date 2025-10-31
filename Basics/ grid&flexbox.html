@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning hori</title>
+    <style>
+        .grid{
+            display: grid;
+            grid-template-columns: 45px 1fr;
+            column-gap: 26px;
+            row-gap: 10px;
+        }
+        .grid1{
+            background-color: pink;
+        }
+        .grid2{
+            background-color: beige;
+        }
+        .flex{
+            display: flex;
+            border-width: 3px;
+            border: solid;
+            height: 80px;
+            align-items: center;
+        }
+        .flex1{
+            background-color: lightblue;
+            flex: 1;
+        }
+        .flex2{
+            background-color: gold;
+            flex: 2;
+        }
+        .navig{
+            background-color: blueviolet;
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+            align-items: center;
+        }
+        
+        .search-bar{
+            border-radius: 50px;
+            border: none;
+            width: 300px;
+            padding: 8px;
+            padding-left: 15px;
+            font-weight: 600;
+        }
+        .d-button{
+            border-color:white;
+            border-style: solid;
+            border-width: 1px;
+            background-color: blue;
+            padding: 9px 18px;
+            color: white;
+            font-weight: 600;
+            margin-right: 20px;
+            
+        }
+        .home{
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 1000;
+            font-size: 17px;
+            margin-left: 20px;
+            width: 130px;
+            
+        }
+        .search-flex{
+            flex: 1;
+            
+        }
+        .down-flex{
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="grid1">grid 1</div>
+        <div class="grid2">grid 2</div>
+        <div class="grid1">grid 1</div>
+        <div class="grid2">grid 2</div>
+    </div>
+
+    <div class="flex">
+        <div class="flex1">flex 1</div>
+        <div class="flex2">flex 2</div>
+        <div class="flex1">flex 1</div>
+        <div class="flex2">flex 2</div>
+    </div>
+
+    <hr>
+
+    <div class="navig">
+        <div class="home">
+            Home
+        </div>
+        <div class="search-flex">
+            <input class="search-bar" type="text" placeholder="Search">
+        </div>
+        <div class="down-flex">
+            <button class="d-button">
+                Download
+            </button>
+
+        </div>
+    </div>
+</body>
+</html>
